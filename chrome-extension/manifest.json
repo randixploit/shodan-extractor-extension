@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "author": "randiXploit (Just R)",
+  "name": "Shodan Extractor",
+  "version": "1.0.0",
+  "description": "Extract visible Shodan hostnames and IP addresses easily.",
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "clipboardWrite"
+  ],
+
+  "host_permissions": [
+    "https://www.shodan.io/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.shodan.io/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
