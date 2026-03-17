@@ -1,5 +1,6 @@
 # Shodan Extractor Extension
-<a href="https://opensource.org/license/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg"></a>
+<a href="https://opensource.org/license/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg"></a><br>
+<img src="https://api.visitorbadge.io/api/VisitorHit?user=randixploit&repo=shodan-extractor-extension&countColor=%237B1E7A" />
 
 A lightweight browser extension that extracts visible hostnames and IP addresses from Shodan search result pages — without needing to open the browser console.
 
@@ -80,6 +81,19 @@ It only processes data already rendered in the browser.
 4. Select the `chrome/` folder
 
 ---
+
+## 💉 console.log
+
+You can use the following javascript code in the console log as an alternative to the extension.
+
+```javascript
+const hostnames = Array.from(document.querySelectorAll('li.hostnames.text-secondary'))
+    .map(el => el.textContent.trim());
+const ipAddresses = Array.from(document.querySelectorAll('a.title.text-dark[href^="/host/"]'))
+    .map(el => el.textContent.trim());
+const allValues = [...hostnames, ...ipAddresses];
+console.log(allValues.join('\n'));
+```
 
 ## 🎨 UI Design
 
